@@ -11,7 +11,7 @@ public class NbCountTopology {
 	        TopologyBuilder builder = new TopologyBuilder();
 	        
 	        // Create Topology
-	        builder.setSpout("Gen-Number", new SimpleStructFromRabbitSpout(), 2);
+	        builder.setSpout("Get-SimpleStruct", new SimpleStructFromRabbitSpout(), 2);
 	        
 	        builder.setBolt("Count-Number", new CountNumbersBolt(), 3)
 	        	   .fieldsGrouping("Gen-Number", new Fields("number"));
